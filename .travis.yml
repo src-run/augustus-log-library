@@ -28,7 +28,7 @@ script :
   - bin/phpunit -vvv
 
 after_script :
-  - bash .bldr/bldr -b down-app -V
-  - bash .bldr/bldr -b down-env -V
+  - bash .bldr/bldr -b down-app -q
+  - bash .bldr/bldr -b down-env -q
 
 ...
