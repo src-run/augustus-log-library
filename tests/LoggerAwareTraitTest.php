@@ -11,8 +11,6 @@
 
 namespace SR\Log\Test;
 
-use SR\Log\LoggerAwareTrait;
-
 /**
  * @covers \SR\Log\LoggerAwareTrait
  */
