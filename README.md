@@ -117,4 +117,3 @@ information.
 | __Dev Release__    | [![Packagist](https://src.run/augustus-log-library/packagist_pre.svg)](https://src.run/augustus-log-library/packagist) |
 | __License__        | [![License](https://src.run/augustus-log-library/license.svg)](https://src.run/augustus-log-library/license)           |
 | __Reference__      | [![License](https://src.run/augustus-log-library/api.svg)](https://src.run/augustus-log-library/api)                   |
-
