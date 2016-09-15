@@ -12,12 +12,26 @@
 namespace SR\Log;
 
 use Psr\Log\LoggerAwareInterface as BaseLoggerAwareInterface;
+use Psr\Log\LoggerInterface;
 
 /**
  * Interface for logger aware.
  */
 interface LoggerAwareInterface extends BaseLoggerAwareInterface
 {
+    /**
+     * Returns an instance of the logger.
+     *
+     * @return LoggerInterface
+     */
+    public function getLogger();
+
+    /**
+     * Returns whether a logger instance is present.
+     *
+     * @return bool
+     */
+    public function hasLogger();
 }
 
 /* EOF */

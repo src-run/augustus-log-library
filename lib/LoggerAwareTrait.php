@@ -24,6 +24,16 @@ trait LoggerAwareTrait
     private $logger;
 
     /**
+     * Returns whether a logger instance is present.
+     *
+     * @return bool
+     */
+    public function hasLogger()
+    {
+        return $this->logger instanceof LoggerInterface;
+    }
+
+    /**
      * @param LoggerInterface $logger
      *
      * @return $this
@@ -36,6 +46,16 @@ trait LoggerAwareTrait
     }
 
     /**
+     * Returns an instance of the logger.
+     *
+     * @return LoggerInterface
+     */
+    public function getLogger()
+    {
+        return $this->logger;
+    }
+
+    /**
      * @param string  $message
      * @param mixed[] $context
      *
@@ -43,7 +63,7 @@ trait LoggerAwareTrait
      */
     protected function logEmergency($message, $context = [])
     {
-        if ($this->logger instanceof LoggerInterface) {
+        if ($this->hasLogger()) {
             $this->logger->emergency($message, $context);
         }
 
@@ -58,7 +78,7 @@ trait LoggerAwareTrait
      */
     protected function logAlert($message, $context = [])
     {
-        if ($this->logger instanceof LoggerInterface) {
+        if ($this->hasLogger()) {
             $this->logger->alert($message, $context);
         }
 
@@ -73,7 +93,7 @@ trait LoggerAwareTrait
      */
     protected function logCritical($message, $context = [])
     {
-        if ($this->logger instanceof LoggerInterface) {
+        if ($this->hasLogger()) {
             $this->logger->critical($message, $context);
         }
 
@@ -88,7 +108,7 @@ trait LoggerAwareTrait
      */
     protected function logError($message, $context = [])
     {
-        if ($this->logger instanceof LoggerInterface) {
+        if ($this->hasLogger()) {
             $this->logger->error($message, $context);
         }
 
@@ -103,7 +123,7 @@ trait LoggerAwareTrait
      */
     protected function logWarning($message, $context = [])
     {
-        if ($this->logger instanceof LoggerInterface) {
+        if ($this->hasLogger()) {
             $this->logger->warning($message, $context);
         }
 
@@ -118,7 +138,7 @@ trait LoggerAwareTrait
      */
     protected function logNotice($message, $context = [])
     {
-        if ($this->logger instanceof LoggerInterface) {
+        if ($this->hasLogger()) {
             $this->logger->notice($message, $context);
         }
 
@@ -133,7 +153,7 @@ trait LoggerAwareTrait
      */
     protected function logInfo($message, $context = [])
     {
-        if ($this->logger instanceof LoggerInterface) {
+        if ($this->hasLogger()) {
             $this->logger->info($message, $context);
         }
 
@@ -148,7 +168,7 @@ trait LoggerAwareTrait
      */
     protected function logDebug($message, $context = [])
     {
-        if ($this->logger instanceof LoggerInterface) {
+        if ($this->hasLogger()) {
             $this->logger->debug($message, $context);
         }
 

@@ -11,6 +11,8 @@
 
 namespace SR\Log\Test;
 
+use Psr\Log\LoggerInterface;
+
 /**
  * @covers \SR\Log\LoggerAwareTrait
  */
@@ -60,6 +62,22 @@ class LoggerAwareTraitTest extends \PHPUnit_Framework_TestCase
         $rm = $rc->getMethod($traitMethod);
         $rm->setAccessible(true);
         $rm->invoke($traitMock, 'A log message');
+    }
+
+    public function testGetterAndHaser()
+    {
+        $loggerMock = $this
+            ->getMockBuilder('Psr\Log\LoggerInterface')
+            ->getMockForAbstractClass();
+
+        $traitMock = $this
+            ->getMockBuilder('SR\Log\LoggerAwareTrait')
+            ->getMockForTrait();
+
+        $this->assertFalse($traitMock->hasLogger());
+        $traitMock->setLogger($loggerMock);
+        $this->assertInstanceOf(LoggerInterface::class, $traitMock->getLogger());
+        $this->assertTrue($traitMock->hasLogger());
     }
 }
 
