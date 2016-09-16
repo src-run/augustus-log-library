@@ -28,17 +28,19 @@ trait LoggerAwareTrait
      *
      * @return bool
      */
-    public function hasLogger()
+    final public function hasLogger()
     {
         return $this->logger instanceof LoggerInterface;
     }
 
     /**
-     * @param LoggerInterface $logger
+     * Sets a logger instance.
+     *
+     * @param null|LoggerInterface $logger
      *
      * @return $this
      */
-    public function setLogger(LoggerInterface $logger)
+    final public function setLogger(LoggerInterface $logger = null)
     {
         $this->logger = $logger;
 
@@ -50,126 +52,142 @@ trait LoggerAwareTrait
      *
      * @return LoggerInterface
      */
-    public function getLogger()
+    final public function getLogger()
     {
         return $this->logger;
     }
 
     /**
-     * @param string  $message
-     * @param mixed[] $context
+     * Log an emergency entry.
+     *
+     * @param string  $message      The log message.
+     * @param mixed[] $replacements String replacements for the message.
      *
      * @return $this
      */
-    protected function logEmergency($message, $context = [])
+    final protected function logEmergency($message, $replacements = [])
     {
         if ($this->hasLogger()) {
-            $this->logger->emergency($message, $context);
+            $this->logger->emergency($message, $replacements);
         }
 
         return $this;
     }
 
     /**
-     * @param string  $message
-     * @param mixed[] $context
+     * Log an alert entry.
+     *
+     * @param string  $message      The log message.
+     * @param mixed[] $replacements String replacements for the message.
      *
      * @return $this
      */
-    protected function logAlert($message, $context = [])
+    final protected function logAlert($message, $replacements = [])
     {
         if ($this->hasLogger()) {
-            $this->logger->alert($message, $context);
+            $this->logger->alert($message, $replacements);
         }
 
         return $this;
     }
 
     /**
-     * @param string  $message
-     * @param mixed[] $context
+     * Log a critical entry.
+     *
+     * @param string  $message      The log message.
+     * @param mixed[] $replacements String replacements for the message.
      *
      * @return $this
      */
-    protected function logCritical($message, $context = [])
+    final protected function logCritical($message, $replacements = [])
     {
         if ($this->hasLogger()) {
-            $this->logger->critical($message, $context);
+            $this->logger->critical($message, $replacements);
         }
 
         return $this;
     }
 
     /**
-     * @param string  $message
-     * @param mixed[] $context
+     * Log an error entry.
+     *
+     * @param string  $message      The log message.
+     * @param mixed[] $replacements String replacements for the message.
      *
      * @return $this
      */
-    protected function logError($message, $context = [])
+    final protected function logError($message, $replacements = [])
     {
         if ($this->hasLogger()) {
-            $this->logger->error($message, $context);
+            $this->logger->error($message, $replacements);
         }
 
         return $this;
     }
 
     /**
-     * @param string  $message
-     * @param mixed[] $context
+     * Log a warning entry.
+     *
+     * @param string  $message      The log message.
+     * @param mixed[] $replacements String replacements for the message.
      *
      * @return $this
      */
-    protected function logWarning($message, $context = [])
+    final protected function logWarning($message, $replacements = [])
     {
         if ($this->hasLogger()) {
-            $this->logger->warning($message, $context);
+            $this->logger->warning($message, $replacements);
         }
 
         return $this;
     }
 
     /**
-     * @param string  $message
-     * @param mixed[] $context
+     * Log a notice entry.
+     *
+     * @param string  $message      The log message.
+     * @param mixed[] $replacements String replacements for the message.
      *
      * @return $this
      */
-    protected function logNotice($message, $context = [])
+    final protected function logNotice($message, $replacements = [])
     {
         if ($this->hasLogger()) {
-            $this->logger->notice($message, $context);
+            $this->logger->notice($message, $replacements);
         }
 
         return $this;
     }
 
     /**
-     * @param string  $message
-     * @param mixed[] $context
+     * Log an info entry.
+     *
+     * @param string  $message      The log message.
+     * @param mixed[] $replacements String replacements for the message.
      *
      * @return $this
      */
-    protected function logInfo($message, $context = [])
+    final protected function logInfo($message, $replacements = [])
     {
         if ($this->hasLogger()) {
-            $this->logger->info($message, $context);
+            $this->logger->info($message, $replacements);
         }
 
         return $this;
     }
 
     /**
-     * @param string  $message
-     * @param mixed[] $context
+     * Log a debug entry.
+     *
+     * @param string  $message      The log message.
+     * @param mixed[] $replacements String replacements for the message.
      *
      * @return $this
      */
-    protected function logDebug($message, $context = [])
+    final protected function logDebug($message, $replacements = [])
     {
         if ($this->hasLogger()) {
-            $this->logger->debug($message, $context);
+            $this->logger->debug($message, $replacements);
         }
 
         return $this;

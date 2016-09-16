@@ -20,6 +20,15 @@ use Psr\Log\LoggerInterface;
 interface LoggerAwareInterface extends BaseLoggerAwareInterface
 {
     /**
+     * Sets a logger instance.
+     *
+     * @param null|LoggerInterface $logger
+     *
+     * @return $this
+     */
+    public function setLogger(LoggerInterface $logger = null);
+
+    /**
      * Returns an instance of the logger.
      *
      * @return LoggerInterface
