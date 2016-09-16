@@ -12,6 +12,7 @@
 namespace SR\Log\Test;
 
 use Psr\Log\LoggerInterface;
+use SR\Log\LoggerAwareTrait;
 
 /**
  * @covers \SR\Log\LoggerAwareTrait
@@ -20,16 +21,7 @@ class LoggerAwareTraitTest extends \PHPUnit_Framework_TestCase
 {
     public function testLogMethods()
     {
-        $methods = [
-            'debug',
-            'info',
-            'notice',
-            'warning',
-            'error',
-            'critical',
-            'alert',
-            'emergency',
-        ];
+        $methods = [ 'debug', 'info', 'notice', 'warning', 'error', 'critical', 'alert', 'emergency', ];
 
         foreach ($methods as $m) {
             $this->doLogMethodRun($m);
@@ -41,43 +33,58 @@ class LoggerAwareTraitTest extends \PHPUnit_Framework_TestCase
      */
     public function doLogMethodRun($method)
     {
-        $loggerMock = $this
-            ->getMockBuilder('Psr\Log\LoggerInterface')
-            ->setMethods([$method])
-            ->getMockForAbstractClass();
+        $logInterface = $this->getLoggerMock([$method]);
+        $logAwareTrait = $this->getLoggerTraitMock();
 
-        $loggerMock
+        $logInterface
             ->expects($this->once())
             ->method($method)
             ->with('A log message');
 
-        $traitMock = $this
-            ->getMockBuilder('SR\Log\LoggerAwareTrait')
-            ->getMockForTrait();
-
-        $traitMock->setLogger($loggerMock);
+        $logAwareTrait->setLogger($logInterface);
         $traitMethod = 'log'.ucfirst($method);
 
-        $rc = new \ReflectionObject($traitMock);
+        $rc = new \ReflectionObject($logAwareTrait);
         $rm = $rc->getMethod($traitMethod);
         $rm->setAccessible(true);
-        $rm->invoke($traitMock, 'A log message');
+        $rm->invoke($logAwareTrait, 'A log message');
     }
 
     public function testGetterAndHaser()
     {
-        $loggerMock = $this
-            ->getMockBuilder('Psr\Log\LoggerInterface')
-            ->getMockForAbstractClass();
+        $logInterface = $this->getLoggerMock();
+        $logAwareTrait = $this->getLoggerTraitMock();
 
-        $traitMock = $this
+        $this->assertFalse($logAwareTrait->hasLogger());
+        $logAwareTrait->setLogger($logInterface);
+        $this->assertInstanceOf(LoggerInterface::class, $logAwareTrait->getLogger());
+        $this->assertTrue($logAwareTrait->hasLogger());
+    }
+
+    /**
+     * @return \PHPUnit_Framework_MockObject_MockObject|LoggerAwareTrait
+     */
+    private function getLoggerTraitMock()
+    {
+        return $this
             ->getMockBuilder('SR\Log\LoggerAwareTrait')
             ->getMockForTrait();
+    }
 
-        $this->assertFalse($traitMock->hasLogger());
-        $traitMock->setLogger($loggerMock);
-        $this->assertInstanceOf(LoggerInterface::class, $traitMock->getLogger());
-        $this->assertTrue($traitMock->hasLogger());
+    /**
+     * @param array $methods
+     *
+     * @return \PHPUnit_Framework_MockObject_MockObject|LoggerInterface
+     */
+    private function getLoggerMock(array $methods = [])
+    {
+        $builder = $this->getMockBuilder('Psr\Log\LoggerInterface');
+
+        if (count($methods) > 0) {
+            $builder->setMethods($methods);
+        }
+
+        return $builder->getMockForAbstractClass();
     }
 }
 

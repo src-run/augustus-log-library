@@ -24,7 +24,7 @@ trait LoggerAwareTrait
     private $logger;
 
     /**
-     * Returns whether a logger instance is present.
+     * Returns true if a logger instance is set.
      *
      * @return bool
      */
@@ -34,9 +34,19 @@ trait LoggerAwareTrait
     }
 
     /**
-     * Sets a logger instance.
+     * Returns a logger instance or null.
      *
-     * @param null|LoggerInterface $logger
+     * @return LoggerInterface|null
+     */
+    final public function getLogger()
+    {
+        return $this->logger;
+    }
+
+    /**
+     * Sets logger instance.
+     *
+     * @param null|LoggerInterface $logger An instance of LoggerInterface.
      *
      * @return $this
      */
@@ -45,16 +55,6 @@ trait LoggerAwareTrait
         $this->logger = $logger;
 
         return $this;
-    }
-
-    /**
-     * Returns an instance of the logger.
-     *
-     * @return LoggerInterface
-     */
-    final public function getLogger()
-    {
-        return $this->logger;
     }
 
     /**

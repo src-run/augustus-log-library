@@ -20,27 +20,27 @@ use Psr\Log\LoggerInterface;
 interface LoggerAwareInterface extends BaseLoggerAwareInterface
 {
     /**
-     * Sets a logger instance.
-     *
-     * @param null|LoggerInterface $logger
-     *
-     * @return $this
-     */
-    public function setLogger(LoggerInterface $logger = null);
-
-    /**
-     * Returns an instance of the logger.
-     *
-     * @return LoggerInterface
-     */
-    public function getLogger();
-
-    /**
-     * Returns whether a logger instance is present.
+     * Returns true if a logger instance is set.
      *
      * @return bool
      */
     public function hasLogger();
+
+    /**
+     * Returns a logger instance or null.
+     *
+     * @return LoggerInterface|null
+     */
+    public function getLogger();
+
+    /**
+     * Sets logger instance.
+     *
+     * @param null|LoggerInterface $logger An instance of LoggerInterface.
+     *
+     * @return $this
+     */
+    public function setLogger(LoggerInterface $logger = null);
 }
 
 /* EOF */
