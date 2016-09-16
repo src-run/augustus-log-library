@@ -24,7 +24,7 @@ trait LoggerAwareTrait
     private $logger;
 
     /**
-     * Returns true if a logger instance is set
+     * Returns true if a logger instance is set.
      *
      * @return bool
      */
@@ -34,7 +34,7 @@ trait LoggerAwareTrait
     }
 
     /**
-     * Returns a logger instance or null
+     * Returns a logger instance or null.
      *
      * @return LoggerInterface|null
      */
@@ -44,7 +44,7 @@ trait LoggerAwareTrait
     }
 
     /**
-     * Sets logger instance
+     * Sets logger instance.
      *
      * @param null|LoggerInterface $logger An instance of LoggerInterface
      *
