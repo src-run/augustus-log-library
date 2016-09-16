@@ -34,7 +34,7 @@ interface LoggerAwareInterface extends BaseLoggerAwareInterface
     public function getLogger();
 
     /**
-     * Sets logger instance.
+     * Sets logger instance
      *
      * @param null|LoggerInterface $logger An instance of LoggerInterface
      *
