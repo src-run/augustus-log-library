@@ -3,7 +3,7 @@
 
 |       Travis-CI        |      Codacy Rating      |      Code Coverage      |        Style-CI         |         Release         |    API Documentation    |
 |:----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
-| [![Travis](https://src.run/augustus-file-lock-library/travis.svg)](https://src.run/augustus-file-lock-library/travis) | [![Codacy](https://src.run/augustus-file-lock-library/codacy.svg)](https://src.run/augustus-file-lock-library/codacy) | [![Coveralls](https://src.run/augustus-file-lock-library/coveralls.svg)](https://src.run/augustus-file-lock-library/coveralls) | [![Coveralls](https://src.run/augustus-file-lock-library/styleci.svg)](https://src.run/augustus-file-lock-library/styleci) | [![Packagist](https://src.run/augustus-file-lock-library/packagist.svg)](https://src.run/augustus-file-lock-library/packagist) | [![API Docs](https://src.run/augustus-file-lock-library/api.svg)](https://src.run/augustus-file-lock-library/api) | 
+| [![Travis](https://src.run/augustus-log-library/travis.svg)](https://src.run/augustus-log-library/travis) | [![Codacy](https://src.run/augustus-log-library/codacy.svg)](https://src.run/augustus-log-library/codacy) | [![Coveralls](https://src.run/augustus-log-library/coveralls.svg)](https://src.run/augustus-log-library/coveralls) | [![Coveralls](https://src.run/augustus-log-library/styleci.svg)](https://src.run/augustus-log-library/styleci) | [![Packagist](https://src.run/augustus-log-library/packagist.svg)](https://src.run/augustus-log-library/packagist) | [![API Docs](https://src.run/augustus-log-library/api.svg)](https://src.run/augustus-log-library/api) | 
 
 
 ## Overview
@@ -11,7 +11,7 @@
 [Welcome](https://src.run/go/readme_welcome)!
 The `src-run/augustus-log-library` package provides:
 
-> A simple logger aware class trait.
+> Provides a simple logger aware class trait.
 
 ### Grouping
 
@@ -113,6 +113,6 @@ information.
 
 | Item               | Result/Status                                                                                                      |
 |-------------------:|:-------------------------------------------------------------------------------------------------------------------|
-| __Stable Release__ | [![Packagist](https://src.run/augustus-file-lock-library/packagist.svg)](https://src.run/augustus-file-lock-library/packagist)     |
-| __Dev Release__    | [![Packagist](https://src.run/augustus-file-lock-library/packagist_pre.svg)](https://src.run/augustus-file-lock-library/packagist) |
-| __License__        | [![License](https://src.run/augustus-file-lock-library/license.svg)](https://src.run/augustus-file-lock-library/license)           |
+| __Stable Release__ | [![Packagist](https://src.run/augustus-log-library/packagist.svg)](https://src.run/augustus-log-library/packagist)     |
+| __Dev Release__    | [![Packagist](https://src.run/augustus-log-library/packagist_pre.svg)](https://src.run/augustus-log-library/packagist) |
+| __License__        | [![License](https://src.run/augustus-log-library/license.svg)](https://src.run/augustus-log-library/license)           |
