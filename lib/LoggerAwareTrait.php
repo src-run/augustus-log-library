@@ -60,8 +60,8 @@ trait LoggerAwareTrait
     /**
      * Log an emergency entry.
      *
-     * @param string  $message      The log message.
-     * @param mixed[] $replacements String replacements for the message.
+     * @param string  $message      The log message
+     * @param mixed[] $replacements String replacements for the message
      *
      * @return $this
      */
@@ -77,8 +77,8 @@ trait LoggerAwareTrait
     /**
      * Log an alert entry.
      *
-     * @param string  $message      The log message.
-     * @param mixed[] $replacements String replacements for the message.
+     * @param string  $message      The log message
+     * @param mixed[] $replacements String replacements for the message
      *
      * @return $this
      */
@@ -94,8 +94,8 @@ trait LoggerAwareTrait
     /**
      * Log a critical entry.
      *
-     * @param string  $message      The log message.
-     * @param mixed[] $replacements String replacements for the message.
+     * @param string  $message      The log message
+     * @param mixed[] $replacements String replacements for the message
      *
      * @return $this
      */
@@ -111,8 +111,8 @@ trait LoggerAwareTrait
     /**
      * Log an error entry.
      *
-     * @param string  $message      The log message.
-     * @param mixed[] $replacements String replacements for the message.
+     * @param string  $message      The log message
+     * @param mixed[] $replacements String replacements for the message
      *
      * @return $this
      */
@@ -128,8 +128,8 @@ trait LoggerAwareTrait
     /**
      * Log a warning entry.
      *
-     * @param string  $message      The log message.
-     * @param mixed[] $replacements String replacements for the message.
+     * @param string  $message      The log message
+     * @param mixed[] $replacements String replacements for the message
      *
      * @return $this
      */
@@ -145,8 +145,8 @@ trait LoggerAwareTrait
     /**
      * Log a notice entry.
      *
-     * @param string  $message      The log message.
-     * @param mixed[] $replacements String replacements for the message.
+     * @param string  $message      The log message
+     * @param mixed[] $replacements String replacements for the message
      *
      * @return $this
      */
@@ -162,8 +162,8 @@ trait LoggerAwareTrait
     /**
      * Log an info entry.
      *
-     * @param string  $message      The log message.
-     * @param mixed[] $replacements String replacements for the message.
+     * @param string  $message      The log message
+     * @param mixed[] $replacements String replacements for the message
      *
      * @return $this
      */
@@ -179,8 +179,8 @@ trait LoggerAwareTrait
     /**
      * Log a debug entry.
      *
-     * @param string  $message      The log message.
-     * @param mixed[] $replacements String replacements for the message.
+     * @param string  $message      The log message
+     * @param mixed[] $replacements String replacements for the message
      *
      * @return $this
      */
