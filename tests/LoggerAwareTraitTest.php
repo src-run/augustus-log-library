@@ -21,7 +21,7 @@ class LoggerAwareTraitTest extends \PHPUnit_Framework_TestCase
 {
     public function testLogMethods()
     {
-        $methods = [ 'debug', 'info', 'notice', 'warning', 'error', 'critical', 'alert', 'emergency', ];
+        $methods = ['debug', 'info', 'notice', 'warning', 'error', 'critical', 'alert', 'emergency'];
 
         foreach ($methods as $m) {
             $this->doLogMethodRun($m);
