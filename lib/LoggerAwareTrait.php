@@ -170,7 +170,7 @@ trait LoggerAwareTrait
         if ($this->hasLogger() && false !== $scope = $this->sanitizeScope($scope)) {
             call_user_func_array([$this->logger, $scope], [
                 $message,
-                $context
+                $context,
             ]);
         }
 

@@ -32,7 +32,7 @@ trait StaticLoggerAwareTrait
      *
      * @return bool
      */
-    final static public function hasLogger() : bool
+    final public static function hasLogger() : bool
     {
         return static::$loggerAware !== null && static::$loggerAware->hasLogger();
     }
@@ -42,7 +42,7 @@ trait StaticLoggerAwareTrait
      *
      * @return LoggerInterface|null
      */
-    final static public function getLogger()
+    final public static function getLogger()
     {
         return static::$loggerAware !== null ? static::$loggerAware->getLogger() : null;
     }
@@ -54,7 +54,7 @@ trait StaticLoggerAwareTrait
      *
      * @return LoggerAwareInterface
      */
-    final static public function setLogger(LoggerInterface $logger = null)
+    final public static function setLogger(LoggerInterface $logger = null)
     {
         if (!static::$loggerAware) {
             static::$loggerAware = new LoggerAware();
@@ -72,7 +72,7 @@ trait StaticLoggerAwareTrait
      *
      * @return $this
      */
-    final static protected function logEmergency($message, array $context = [])
+    final protected static function logEmergency($message, array $context = [])
     {
         return static::$doScopedLog->invokeArgs(static::$loggerAware, [__FUNCTION__, $message, $context]);
     }
@@ -85,7 +85,7 @@ trait StaticLoggerAwareTrait
      *
      * @return $this
      */
-    final static protected function logAlert($message, array $context = [])
+    final protected static function logAlert($message, array $context = [])
     {
         return static::$doScopedLog->invokeArgs(static::$loggerAware, [__FUNCTION__, $message, $context]);
     }
@@ -98,7 +98,7 @@ trait StaticLoggerAwareTrait
      *
      * @return $this
      */
-    final static protected function logCritical($message, array $context = [])
+    final protected static function logCritical($message, array $context = [])
     {
         return static::$doScopedLog->invokeArgs(static::$loggerAware, [__FUNCTION__, $message, $context]);
     }
@@ -111,7 +111,7 @@ trait StaticLoggerAwareTrait
      *
      * @return $this
      */
-    final static protected function logError($message, array $context = [])
+    final protected static function logError($message, array $context = [])
     {
         return static::$doScopedLog->invokeArgs(static::$loggerAware, [__FUNCTION__, $message, $context]);
     }
@@ -124,7 +124,7 @@ trait StaticLoggerAwareTrait
      *
      * @return $this
      */
-    final static protected function logWarning($message, array $context = [])
+    final protected static function logWarning($message, array $context = [])
     {
         return static::$doScopedLog->invokeArgs(static::$loggerAware, [__FUNCTION__, $message, $context]);
     }
@@ -137,7 +137,7 @@ trait StaticLoggerAwareTrait
      *
      * @return $this
      */
-    final static protected function logNotice($message, array $context = [])
+    final protected static function logNotice($message, array $context = [])
     {
         return static::$doScopedLog->invokeArgs(static::$loggerAware, [__FUNCTION__, $message, $context]);
     }
@@ -150,7 +150,7 @@ trait StaticLoggerAwareTrait
      *
      * @return $this
      */
-    final static protected function logInfo($message, array $context = [])
+    final protected static function logInfo($message, array $context = [])
     {
         return static::$doScopedLog->invokeArgs(static::$loggerAware, [__FUNCTION__, $message, $context]);
     }
@@ -163,7 +163,7 @@ trait StaticLoggerAwareTrait
      *
      * @return $this
      */
-    final static protected function logDebug($message, array $context = [])
+    final protected static function logDebug($message, array $context = [])
     {
         return static::$doScopedLog->invokeArgs(static::$loggerAware, [__FUNCTION__, $message, $context]);
     }

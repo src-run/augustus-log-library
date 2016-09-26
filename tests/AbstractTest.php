@@ -39,7 +39,7 @@ abstract class AbstractTest extends \PHPUnit_Framework_TestCase
             $logAware->setLogger($logger);
         }
 
-        $traitMethod = 'log' . ucfirst($method);
+        $traitMethod = 'log'.ucfirst($method);
 
         $method = Inspect::using($logAware)->getMethod($traitMethod);
         $method->invokeArgs($logAware, ['A log message']);
