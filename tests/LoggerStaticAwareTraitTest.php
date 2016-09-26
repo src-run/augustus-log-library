@@ -11,12 +11,12 @@
 
 namespace SR\Log\Test;
 
-use SR\Log\LoggerAwareTrait;
+use SR\Log\StaticLoggerAwareTrait;
 
 /**
- * @covers \SR\Log\LoggerAwareTrait
+ * @covers \SR\Log\StaticLoggerAwareTrait
  */
-class LoggerAwareTraitTest extends AbstractTest
+class StaticLoggerAwareTraitTest extends AbstractTest
 {
     /**
      * @dataProvider methodDataProvider
@@ -32,12 +32,12 @@ class LoggerAwareTraitTest extends AbstractTest
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|LoggerAwareTrait
+     * @return \PHPUnit_Framework_MockObject_MockObject|StaticLoggerAwareTrait
      */
     protected function getLoggerTraitMock()
     {
         return $this
-            ->getMockBuilder(LoggerAwareTrait::class)
+            ->getMockBuilder(StaticLoggerAwareTrait::class)
             ->getMockForTrait();
     }
 }

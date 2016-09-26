@@ -11,36 +11,33 @@
 
 namespace SR\Log;
 
-use Psr\Log\LoggerAwareInterface as BaseLoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 
 /**
- * Interface for logger aware implementations.
+ * Interface for static logger aware implementations.
  */
-interface LoggerAwareInterface extends BaseLoggerAwareInterface
+interface StaticLoggerAwareInterface
 {
     /**
      * Returns true if a logger instance is set.
      *
      * @return bool
      */
-    public function hasLogger() : bool;
+    public static function hasLogger() : bool;
 
     /**
      * Returns a logger instance or null.
      *
      * @return LoggerInterface|null
      */
-    public function getLogger();
+    public static function getLogger();
 
     /**
      * Sets logger instance.
      *
      * @param null|LoggerInterface $logger An instance of LoggerInterface
-     *
-     * @return $this
      */
-    public function setLogger(LoggerInterface $logger = null);
+    public static function setLogger(LoggerInterface $logger = null);
 }
 
 /* EOF */

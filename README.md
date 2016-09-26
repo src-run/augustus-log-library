@@ -11,7 +11,7 @@
 [Welcome](https://src.run/go/readme_welcome)!
 The `src-run/augustus-log-library` package provides:
 
-> Provides a simple logger aware class trait.
+> Logger aware traits for PSR log implementation.
 
 ### Grouping
 

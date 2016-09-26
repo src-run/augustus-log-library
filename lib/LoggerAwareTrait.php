@@ -14,12 +14,12 @@ namespace SR\Log;
 use Psr\Log\LoggerInterface;
 
 /**
- * Trait that enabled logging.
+ * Trait implementing logger aware interface.
  */
 trait LoggerAwareTrait
 {
     /**
-     * @var LoggerInterface
+     * @var null|LoggerInterface
      */
     private $logger;
 
@@ -28,7 +28,7 @@ trait LoggerAwareTrait
      *
      * @return bool
      */
-    final public function hasLogger()
+    final public function hasLogger() : bool
     {
         return $this->logger instanceof LoggerInterface;
     }
@@ -60,137 +60,140 @@ trait LoggerAwareTrait
     /**
      * Log an emergency entry.
      *
-     * @param string  $message      The log message
-     * @param mixed[] $replacements String replacements for the message
+     * @param string  $message The message string to log
+     * @param mixed[] $context Replacement values for string
      *
      * @return $this
      */
-    final protected function logEmergency($message, $replacements = [])
+    final protected function logEmergency($message, array $context = [])
     {
-        if ($this->hasLogger()) {
-            $this->logger->emergency($message, $replacements);
-        }
-
-        return $this;
+        return $this->doScopedLog(__FUNCTION__, $message, $context);
     }
 
     /**
      * Log an alert entry.
      *
-     * @param string  $message      The log message
-     * @param mixed[] $replacements String replacements for the message
+     * @param string  $message The message string to log
+     * @param mixed[] $context Replacement values for string
      *
      * @return $this
      */
-    final protected function logAlert($message, $replacements = [])
+    final protected function logAlert($message, array $context = [])
     {
-        if ($this->hasLogger()) {
-            $this->logger->alert($message, $replacements);
-        }
-
-        return $this;
+        return $this->doScopedLog(__FUNCTION__, $message, $context);
     }
 
     /**
      * Log a critical entry.
      *
-     * @param string  $message      The log message
-     * @param mixed[] $replacements String replacements for the message
+     * @param string  $message The message string to log
+     * @param mixed[] $context Replacement values for string
      *
      * @return $this
      */
-    final protected function logCritical($message, $replacements = [])
+    final protected function logCritical($message, array $context = [])
     {
-        if ($this->hasLogger()) {
-            $this->logger->critical($message, $replacements);
-        }
-
-        return $this;
+        return $this->doScopedLog(__FUNCTION__, $message, $context);
     }
 
     /**
      * Log an error entry.
      *
-     * @param string  $message      The log message
-     * @param mixed[] $replacements String replacements for the message
+     * @param string  $message The message string to log
+     * @param mixed[] $context Replacement values for string
      *
      * @return $this
      */
-    final protected function logError($message, $replacements = [])
+    final protected function logError($message, array $context = [])
     {
-        if ($this->hasLogger()) {
-            $this->logger->error($message, $replacements);
-        }
-
-        return $this;
+        return $this->doScopedLog(__FUNCTION__, $message, $context);
     }
 
     /**
      * Log a warning entry.
      *
-     * @param string  $message      The log message
-     * @param mixed[] $replacements String replacements for the message
+     * @param string  $message The message string to log
+     * @param mixed[] $context Replacement values for string
      *
      * @return $this
      */
-    final protected function logWarning($message, $replacements = [])
+    final protected function logWarning($message, array $context = [])
     {
-        if ($this->hasLogger()) {
-            $this->logger->warning($message, $replacements);
-        }
-
-        return $this;
+        return $this->doScopedLog(__FUNCTION__, $message, $context);
     }
 
     /**
      * Log a notice entry.
      *
-     * @param string  $message      The log message
-     * @param mixed[] $replacements String replacements for the message
+     * @param string  $message The message string to log
+     * @param mixed[] $context Replacement values for string
      *
      * @return $this
      */
-    final protected function logNotice($message, $replacements = [])
+    final protected function logNotice($message, array $context = [])
     {
-        if ($this->hasLogger()) {
-            $this->logger->notice($message, $replacements);
-        }
-
-        return $this;
+        return $this->doScopedLog(__FUNCTION__, $message, $context);
     }
 
     /**
      * Log an info entry.
      *
-     * @param string  $message      The log message
-     * @param mixed[] $replacements String replacements for the message
+     * @param string  $message The message string to log
+     * @param mixed[] $context Replacement values for string
      *
      * @return $this
      */
-    final protected function logInfo($message, $replacements = [])
+    final protected function logInfo($message, array $context = [])
     {
-        if ($this->hasLogger()) {
-            $this->logger->info($message, $replacements);
+        return $this->doScopedLog(__FUNCTION__, $message, $context);
+    }
+
+    /**
+     * Log a debug entry.
+     *
+     * @param string  $message The message string to log
+     * @param mixed[] $context Replacement values for string
+     *
+     * @return $this
+     */
+    final protected function logDebug($message, array $context = [])
+    {
+        return $this->doScopedLog(__FUNCTION__, $message, $context);
+    }
+
+    /**
+     * @param string  $scope
+     * @param string  $message
+     * @param mixed[] $context
+     *
+     * @return $this
+     */
+    final private function doScopedLog($scope, $message, array $context = [])
+    {
+        if ($this->hasLogger() && false !== $scope = $this->sanitizeScope($scope)) {
+            call_user_func_array([$this->logger, $scope], [
+                $message,
+                $context
+            ]);
         }
 
         return $this;
     }
 
     /**
-     * Log a debug entry.
+     * @param string $scope
      *
-     * @param string  $message      The log message
-     * @param mixed[] $replacements String replacements for the message
-     *
-     * @return $this
+     * @return bool|string
      */
-    final protected function logDebug($message, $replacements = [])
+    final private function sanitizeScope($scope)
     {
-        if ($this->hasLogger()) {
-            $this->logger->debug($message, $replacements);
+        $scope = strtolower($scope);
+
+        if (strpos($scope, 'log') === 0) {
+            $scope = substr($scope, 3);
         }
 
-        return $this;
+        return in_array($scope, get_class_methods($this->logger), true) ? $scope : false;
     }
 }
 

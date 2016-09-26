@@ -12,5 +12,5 @@ app_prep   : dep-composer
 app_post   : ~
 app_path   : ~
 pkg_name   : augustus-log-library
-pkg_desc   : "a simple logger aware class trait"
+pkg_desc   : "Logger aware traits for PSR log implementation."
 pkg_bndl   : false
