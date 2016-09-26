@@ -13,9 +13,6 @@ namespace SR\Log;
 
 use Psr\Log\LoggerInterface;
 
-/**
- * Interface for static logger aware implementations.
- */
 interface StaticLoggerAwareInterface
 {
     /**
@@ -39,5 +36,3 @@ interface StaticLoggerAwareInterface
      */
     public static function setLogger(LoggerInterface $logger = null);
 }
-
-/* EOF */

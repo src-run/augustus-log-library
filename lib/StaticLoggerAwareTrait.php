@@ -15,9 +15,6 @@ use Psr\Log\LoggerInterface;
 use SR\Reflection\Inspect;
 use SR\Reflection\Inspector\MethodInspector;
 
-/**
- * Trait implementing static logger aware interface.
- */
 trait StaticLoggerAwareTrait
 {
     /**
@@ -171,5 +168,3 @@ trait StaticLoggerAwareTrait
         return static::$doScopedLog->invokeArgs(static::$loggerAware, [__FUNCTION__, $message, $context]);
     }
 }
-
-/* EOF */

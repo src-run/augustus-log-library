@@ -41,5 +41,3 @@ class StaticLoggerAwareTraitTest extends AbstractTest
             ->getMockForTrait();
     }
 }
-
-/* EOF */

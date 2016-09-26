@@ -14,9 +14,6 @@ namespace SR\Log;
 use Psr\Log\LoggerAwareInterface as BaseLoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 
-/**
- * Interface for logger aware implementations.
- */
 interface LoggerAwareInterface extends BaseLoggerAwareInterface
 {
     /**
@@ -42,5 +39,3 @@ interface LoggerAwareInterface extends BaseLoggerAwareInterface
      */
     public function setLogger(LoggerInterface $logger = null);
 }
-
-/* EOF */

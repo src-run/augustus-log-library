@@ -11,12 +11,7 @@
 
 namespace SR\Log;
 
-/**
- * Logger aware class using logger aware trait.
- */
 class LoggerAware
 {
     use LoggerAwareTrait;
 }
-
-/* EOF */

@@ -13,9 +13,6 @@ namespace SR\Log;
 
 use Psr\Log\LoggerInterface;
 
-/**
- * Trait implementing logger aware interface.
- */
 trait LoggerAwareTrait
 {
     /**
@@ -196,5 +193,3 @@ trait LoggerAwareTrait
         return in_array($scope, get_class_methods($this->logger), true) ? $scope : false;
     }
 }
-
-/* EOF */
