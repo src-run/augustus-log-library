@@ -11,7 +11,7 @@
 
 namespace SR\Log\Test;
 
-use PhpCsFixer\Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 use SR\Log\LoggerAwareTrait;
 use SR\Log\StaticLoggerAwareTrait;
