@@ -11,12 +11,13 @@
 
 namespace SR\Log\Test;
 
+use PhpCsFixer\Tests\TestCase;
 use Psr\Log\LoggerInterface;
 use SR\Log\LoggerAwareTrait;
 use SR\Log\StaticLoggerAwareTrait;
 use SR\Reflection\Inspect;
 
-abstract class AbstractTest extends \PHPUnit_Framework_TestCase
+abstract class AbstractTest extends TestCase
 {
     public function methodDataProvider()
     {

@@ -20,7 +20,7 @@ interface StaticLoggerAwareInterface
      *
      * @return bool
      */
-    public static function hasLogger() : bool;
+    public static function hasLogger(): bool;
 
     /**
      * Returns a logger instance or null.

@@ -32,9 +32,9 @@ trait StaticLoggerAwareTrait
      *
      * @return bool
      */
-    final public static function hasLogger() : bool
+    final public static function hasLogger(): bool
     {
-        return static::$loggerAware !== null && static::$loggerAware->hasLogger();
+        return null !== static::$loggerAware && static::$loggerAware->hasLogger();
     }
 
     /**
@@ -44,7 +44,7 @@ trait StaticLoggerAwareTrait
      */
     final public static function getLogger()
     {
-        return static::$loggerAware !== null ? static::$loggerAware->getLogger() : null;
+        return null !== static::$loggerAware ? static::$loggerAware->getLogger() : null;
     }
 
     /**

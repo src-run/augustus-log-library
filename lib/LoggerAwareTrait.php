@@ -25,7 +25,7 @@ trait LoggerAwareTrait
      *
      * @return bool
      */
-    final public function hasLogger() : bool
+    final public function hasLogger(): bool
     {
         return $this->logger instanceof LoggerInterface;
     }
@@ -184,10 +184,10 @@ trait LoggerAwareTrait
      */
     final private function sanitizeScope($scope)
     {
-        $scope = strtolower($scope);
+        $scope = mb_strtolower($scope);
 
-        if (strpos($scope, 'log') === 0) {
-            $scope = substr($scope, 3);
+        if (0 === mb_strpos($scope, 'log')) {
+            $scope = mb_substr($scope, 3);
         }
 
         return in_array($scope, get_class_methods($this->logger), true) ? $scope : false;

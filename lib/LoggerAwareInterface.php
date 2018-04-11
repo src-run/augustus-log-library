@@ -21,7 +21,7 @@ interface LoggerAwareInterface extends BaseLoggerAwareInterface
      *
      * @return bool
      */
-    public function hasLogger() : bool;
+    public function hasLogger(): bool;
 
     /**
      * Returns a logger instance or null.
