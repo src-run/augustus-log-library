@@ -165,7 +165,7 @@ trait LoggerAwareTrait
      *
      * @return $this
      */
-    final private function doScopedLog($scope, $message, array $context = [])
+    private function doScopedLog($scope, $message, array $context = [])
     {
         if ($this->hasLogger() && false !== $scope = $this->sanitizeScope($scope)) {
             call_user_func_array([$this->logger, $scope], [
@@ -182,7 +182,7 @@ trait LoggerAwareTrait
      *
      * @return bool|string
      */
-    final private function sanitizeScope($scope)
+    private function sanitizeScope($scope)
     {
         $scope = mb_strtolower($scope);
 
