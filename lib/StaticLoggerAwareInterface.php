@@ -17,8 +17,6 @@ interface StaticLoggerAwareInterface
 {
     /**
      * Returns true if a logger instance is set.
-     *
-     * @return bool
      */
     public static function hasLogger(): bool;
 
@@ -32,7 +30,7 @@ interface StaticLoggerAwareInterface
     /**
      * Sets logger instance.
      *
-     * @param null|LoggerInterface $logger An instance of LoggerInterface
+     * @param LoggerInterface|null $logger An instance of LoggerInterface
      */
     public static function setLogger(LoggerInterface $logger = null);
 }

@@ -38,6 +38,7 @@ class StaticLoggerAwareTraitTest extends AbstractTest
     {
         return $this
             ->getMockBuilder(StaticLoggerAwareTrait::class)
-            ->getMockForTrait();
+            ->getMockForTrait()
+        ;
     }
 }

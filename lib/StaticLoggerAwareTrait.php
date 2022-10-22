@@ -29,8 +29,6 @@ trait StaticLoggerAwareTrait
 
     /**
      * Returns true if a logger instance is set.
-     *
-     * @return bool
      */
     final public static function hasLogger(): bool
     {
@@ -50,7 +48,7 @@ trait StaticLoggerAwareTrait
     /**
      * Sets logger instance.
      *
-     * @param null|LoggerInterface $logger An instance of LoggerInterface
+     * @param LoggerInterface|null $logger An instance of LoggerInterface
      *
      * @return LoggerAwareInterface
      */

@@ -16,14 +16,12 @@ use Psr\Log\LoggerInterface;
 trait LoggerAwareTrait
 {
     /**
-     * @var null|LoggerInterface
+     * @var LoggerInterface|null
      */
     private $logger;
 
     /**
      * Returns true if a logger instance is set.
-     *
-     * @return bool
      */
     final public function hasLogger(): bool
     {
@@ -43,7 +41,7 @@ trait LoggerAwareTrait
     /**
      * Sets logger instance.
      *
-     * @param null|LoggerInterface $logger An instance of LoggerInterface
+     * @param LoggerInterface|null $logger An instance of LoggerInterface
      *
      * @return $this
      */

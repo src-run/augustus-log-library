@@ -32,7 +32,8 @@ abstract class AbstractTest extends TestCase
         $logger
             ->expects($this->once())
             ->method($method)
-            ->with('A log message');
+            ->with('A log message')
+        ;
 
         if ($static) {
             $logAware::setLogger($logger);
@@ -40,7 +41,7 @@ abstract class AbstractTest extends TestCase
             $logAware->setLogger($logger);
         }
 
-        $traitMethod = 'log'.ucfirst($method);
+        $traitMethod = 'log' . ucfirst($method);
 
         $method = Inspect::using($logAware)->getMethod($traitMethod);
         $method->invokeArgs($logAware, ['A log message']);

@@ -18,8 +18,6 @@ interface LoggerAwareInterface extends BaseLoggerAwareInterface
 {
     /**
      * Returns true if a logger instance is set.
-     *
-     * @return bool
      */
     public function hasLogger(): bool;
 
@@ -33,7 +31,7 @@ interface LoggerAwareInterface extends BaseLoggerAwareInterface
     /**
      * Sets logger instance.
      *
-     * @param null|LoggerInterface $logger An instance of LoggerInterface
+     * @param LoggerInterface|null $logger An instance of LoggerInterface
      *
      * @return $this
      */
